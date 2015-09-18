@@ -19,6 +19,8 @@ services:
 before_install:
 
 before_script:
+  # Set up PHP
+  - echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   # Set up Composer
   - composer self-update || true
   - composer install --prefer-dist
