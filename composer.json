@@ -1,0 +1,58 @@
+{
+  "name": "lanthane/lanthane",
+  "description": "Simple ERP",
+  "license": "MIT",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "Luc ALBERT",
+      "email": "lucalbert66@gmail.com"
+    }
+  ],
+  "support": {
+    "source": "https://github.com/lanthane/lanthane",
+    "wiki": "https://github.com/lanthane/lanthane/wiki",
+    "issues": "https://github.com/lanthane/lanthane/issues"
+  },
+  "require": {
+    "silex/silex": "^1.3",
+    "twig/twig": "^1.3",
+
+    "symfony/twig-bundle": "^2.7",
+    "symfony/config": "^2.7",
+    "symfony/yaml": "^2.7",
+    "symfony/console": "^2.7",
+    "symfony/translation": "^2.7",
+    "symfony/form": "^2.7",
+    "symfony/validator": "^2.7",
+    "symfony/security-csrf": "^2.7",
+    "symfony/security": "^2.7",
+
+    "swiftmailer/swiftmailer": "^5.4",
+
+    "saxulum/saxulum-doctrine-mongodb-provider": "~1.0",
+
+    "zendframework/zend-config" : "^2.5"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "Lanthane\\": "src"
+    }
+  },
+  "autoload-dev" : {
+    "psr-4" : {
+      "Lanthane\\Tests\\" : "tests/phpunit/unit"
+    }
+  },
+  "keywords": [
+    "ERP",
+    "CRM",
+    "PGI",
+    "PHP",
+    "Silex",
+    "Symfony"
+  ]
+}
