@@ -1,9 +1,10 @@
 <?php
 namespace Lanthane;
 
-use Silex;
-use Lanthane\Provider\configServiceProvider;
+use Exception;
+use MongoConnectionException;
 use Saxulum\DoctrineMongoDb\Silex\Provider\DoctrineMongoDbProvider;
+use Silex;
 
 
 class Application extends Silex\Application
@@ -25,7 +26,7 @@ class Application extends Silex\Application
 
         $this->register(new Provider\ConfigServiceProvider());
 
-        //$this->initializeDatabase();
+        $this->initializeDatabase();
 
         // Load configuration stored in database
     }
@@ -35,14 +36,14 @@ class Application extends Silex\Application
      */
     protected function initializeDatabase()
     {
-        $this->register(new DoctrineMongoDbProvider(), $this['config']->getConfig()['database']);
+        $this->register(new DoctrineMongoDbProvider(), $this['config']->get('database', []));
         $this['db'] = $this['mongodb'];
 
         try {
             $this['mongodb']->connect();
         } catch (MongoConnectionException $e) {
             $error = "Lanthane could not connect to the configured database.\n\n";
-            die($error);
+            throw new \Exception($error);
         }
     }
 }

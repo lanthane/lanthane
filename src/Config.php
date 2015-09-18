@@ -23,16 +23,6 @@ class Config
     }
 
     /**
-     * Retrieve config manager
-     *
-     * @return Zend\Config\Config|ZendConfig
-     */
-    public function getConfigManager()
-    {
-        return $this->configManager;
-    }
-
-    /**
      * Retrive config value using path
      *
      * @param string            $path
@@ -58,6 +48,10 @@ class Config
         }
 
         if (null !== $value) {
+            if ($value instanceof ZendConfig) {
+                return $value->toArray();
+            }
+
             return $value;
         }
 
@@ -120,5 +114,15 @@ class Config
     public function toArray()
     {
         return $this->getConfigManager()->toArray();
+    }
+
+    /**
+     * Retrieve config manager
+     *
+     * @return Zend\Config\Config|ZendConfig
+     */
+    protected function getConfigManager()
+    {
+        return $this->configManager;
     }
 }

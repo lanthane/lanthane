@@ -1,7 +1,6 @@
 <?php
 namespace Lanthane\Tests;
 
-use Lanthane\Tests\LanthaneUnitTest;
 use Lanthane\Config;
 
 class ConfigurationTest extends LanthaneUnitTest
@@ -17,7 +16,6 @@ class ConfigurationTest extends LanthaneUnitTest
         $config = new Config($app);
 
         $this->assertInstanceOf('Lanthane\Config', $config);
-        $this->assertInstanceOf('Zend\Config\Config', $config->getConfigManager());
 
         return $config;
     }
