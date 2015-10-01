@@ -31,7 +31,7 @@ before_script:
 script:
   ## Default install tests
   # PHPUnit
-  - phpunit -c phpunit.xml.dist
+  - ./vendor/bin/phpunit -c phpunit.xml.dist
 
 
 after_script:
